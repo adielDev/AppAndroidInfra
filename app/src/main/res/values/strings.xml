@@ -1,3 +1,9 @@
 <resources>
     <string name="app_name">AppAndroidInfra</string>
+
+    <string-array name="mainlist">
+        <item>ActionModeEx</item>
+        <item>CustomAlertDialog</item>
+    </string-array>
+
 </resources>
