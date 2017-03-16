@@ -4,52 +4,29 @@ import android.app.Activity;
 import android.app.Application;
 import android.os.Bundle;
 
+import java.util.ArrayList;
+
+import adiel.androidinframodule.activities.MyActivityLifecycleCallbacks;
+
 /**
  * Created by recntrek7 on 15/03/17.
  */
 
 public class MyApp extends Application{
-
+    private MyActivityLifecycleCallbacks myActivityLifecycleCallbacks;
     @Override
     public void onCreate() {
         super.onCreate();
-        registerActivityLifecycleCallbacks(activityLifecycleCallbacks);
+        myActivityLifecycleCallbacks = new MyActivityLifecycleCallbacks(getActivitiesNames());
+        registerActivityLifecycleCallbacks(myActivityLifecycleCallbacks);
     }
-    ActivityLifecycleCallbacks activityLifecycleCallbacks = new ActivityLifecycleCallbacks() {
+    private ArrayList<String> getActivitiesNames(){
+        ArrayList<String> activitiesNames = new ArrayList<>();
+        activitiesNames.add(MainActivity.class.getName());
+        return activitiesNames;
+    }
+    public @MyActivityLifecycleCallbacks.ActivityState String getActivityState(String activityName){
+        return myActivityLifecycleCallbacks.getActivityState(activityName);
+    }
 
-        @Override
-        public void onActivityCreated(Activity activity, Bundle savedInstanceState) {
-
-        }
-
-        @Override
-        public void onActivityStarted(Activity activity) {
-
-        }
-
-        @Override
-        public void onActivityResumed(Activity activity) {
-
-        }
-
-        @Override
-        public void onActivityPaused(Activity activity) {
-
-        }
-
-        @Override
-        public void onActivityStopped(Activity activity) {
-
-        }
-
-        @Override
-        public void onActivitySaveInstanceState(Activity activity, Bundle outState) {
-
-        }
-
-        @Override
-        public void onActivityDestroyed(Activity activity) {
-
-        }
-    };
 }

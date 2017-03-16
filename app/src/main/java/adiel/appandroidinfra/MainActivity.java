@@ -1,5 +1,6 @@
 package adiel.appandroidinfra;
 
+import android.app.Application;
 import android.content.Intent;
 import android.os.Bundle;
 import android.support.v7.app.AppCompatActivity;
@@ -50,10 +51,8 @@ public class MainActivity extends AppCompatActivity {
 
             }
         });
-
+        Utils.printActivityState(this);
     }
-
-
 
 
 
@@ -62,19 +61,21 @@ public class MainActivity extends AppCompatActivity {
     protected void onDestroy() {
         Log.d("adiel","MainActivity:onDestroy");
         super.onDestroy();
+        Utils.printActivityState(this);
     }
 
     @Override
     protected void onResume() {
         super.onResume();
         Log.d("adiel","MainActivity:onResume");
-        //registerReceiver(broadcastReceiver,intentFilter);
+        Utils.printActivityState(this);
 
     }
 
     @Override
     protected void onPause() {
         super.onPause();
+        Utils.printActivityState(this);
         Log.d("adiel","MainActivity:onPause");
     }
 
