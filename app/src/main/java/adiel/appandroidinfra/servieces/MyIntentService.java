@@ -2,14 +2,13 @@ package adiel.appandroidinfra.servieces;
 
 import android.app.IntentService;
 import android.content.Intent;
+
+import java.util.LinkedHashMap;
 import java.util.Map;
 
 import adiel.appandroidinfra.MyApp;
-import adiel.appandroidinfra.R;
 import adiel.appandroidinfra.servieces.interfaces.GateServerDto;
 import adiel.appandroidinfra.servieces.interfaces.GateService;
-
-import static adiel.androidinframodule.utils.MyUtils.getHashMapResource;
 
 public class MyIntentService extends IntentService {
 
@@ -26,7 +25,8 @@ public class MyIntentService extends IntentService {
     public void onCreate() {
         super.onCreate();
         MyApp myApp = (MyApp) getApplication();
-        serviceMap = myApp.getServiceMap();
+        Map<String,String> appServiceMap = myApp.getServiceMap();
+        serviceMap =new LinkedHashMap<>(appServiceMap);// help tp prevent memory leak? or not?
     }
 
     @Override

@@ -6,7 +6,7 @@ package adiel.appandroidinfra.receivers;
 
 public class ReceiverConst {
 
-    public static class ExampleAction{
-        public static final String Action ="exanple.one";
+    public static class LBActions{
+        public static final String ExampleAction="example.action";
     }
 }
