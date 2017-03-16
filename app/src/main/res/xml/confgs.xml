@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 
     <map linked="true">
-        <entry key="ActionModeEx">adiel.rectrain.action_mode.ActionModeEx</entry>
+        <entry key="ExampleActivity">adiel.appandroidinfra.activities.ExampleActivity</entry>
         <entry key="CustomAlertDialog">adiel.rectrain.dialogs.CustomAlertDialog</entry>
     </map>
