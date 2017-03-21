@@ -2,12 +2,18 @@ package adiel.appandroidinfra;
 
 import android.app.Activity;
 import android.app.Application;
+import android.content.Context;
 import android.os.Bundle;
+import android.util.Log;
 
+import java.io.IOException;
+import java.io.OutputStreamWriter;
 import java.util.ArrayList;
 import java.util.Map;
 
 import adiel.androidinframodule.activities.MyActivityLifecycleCallbacks;
+import myaspectj.annotation.Ignore;
+import myaspectj.aspect.MyTrace;
 
 import static adiel.androidinframodule.utils.MyUtils.getHashMapResource;
 
@@ -18,6 +24,10 @@ import static adiel.androidinframodule.utils.MyUtils.getHashMapResource;
 public class MyApp extends Application{
     private MyActivityLifecycleCallbacks myActivityLifecycleCallbacks;
     private Map<String,String> serviceMap;
+
+
+
+    @myaspectj.annotation.Init
     @Override
     public void onCreate() {
         super.onCreate();
@@ -25,6 +35,8 @@ public class MyApp extends Application{
         serviceMap= getHashMapResource(getApplicationContext(), R.xml.gate_server_confgs);
         registerActivityLifecycleCallbacks(myActivityLifecycleCallbacks);
     }
+
+
     private ArrayList<String> getActivitiesNames(){
         ArrayList<String> activitiesNames = new ArrayList<>();
         activitiesNames.add(MainActivity.class.getName());
@@ -36,5 +48,6 @@ public class MyApp extends Application{
     public Map<String,String> getServiceMap(){
         return serviceMap;
     }
+
 
 }
