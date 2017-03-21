@@ -1,3 +1,4 @@
+/*
 package adiel.appandroidinfra.data;
 
 import android.content.Context;
@@ -31,3 +32,4 @@ public class TodosCursorAdapter extends CursorAdapter {
         todoTextView.setText(text);
     }
 }
+*/
